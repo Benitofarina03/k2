@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="model.CartBean, model.ProductBean, model.UserBean, java.util.*"%>
 <%
+	response.setHeader("X-Frame-Options", "DENY");
+	response.setHeader("Content-Security-Policy", "frame-ancestors 'self'");
+
 	if (session.getAttribute("carrello") == null) {
 		CartBean carrello = new CartBean();
 		session.setAttribute("carrello", carrello);
